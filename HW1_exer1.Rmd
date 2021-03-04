@@ -2,7 +2,7 @@
 title: "HW1_exer1"
 output: html_document
 date: "`r format(Sys.time(), '%d %B - %Y')`"
-bibliography: 
+#bibliography: 
 author: "Adel Ben Snoussi, Eric Brandstätter, c, Nathanaël G. Dürst"
 ---
 
@@ -14,7 +14,7 @@ author: "Adel Ben Snoussi, Eric Brandstätter, c, Nathanaël G. Dürst"
 
 ### Nathanaël G. Dürst
 
-## R Markdown Syntax
+## Exercise 1: R Markdown Syntax
 
 ```{r}
 
