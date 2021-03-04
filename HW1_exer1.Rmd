@@ -1,6 +1,7 @@
 ---
 title: "HW1_exer1"
 output: html_document
+author: "a, b, c, Nathanaël G. Dürst"
 ---
 
 ## Introduction
@@ -13,6 +14,6 @@ output: html_document
 
 ### Nathanaël G. Dürst
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+
 ```
