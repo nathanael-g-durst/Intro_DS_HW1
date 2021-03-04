@@ -1,0 +1,18 @@
+---
+title: "HW1_exer1"
+output: html_document
+---
+
+## Introduction
+
+### A
+
+### B
+
+### C
+
+### Nathanaël G. Dürst
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
