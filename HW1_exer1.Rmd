@@ -2,7 +2,11 @@
 title: "HW1_exer1"
 output: html_document
 date: "`r format(Sys.time(), '%d %B - %Y')`"
-#bibliography: 
+
+
+
+
+
 author: "Adel Ben Snoussi, Eric Brandstätter, c, Nathanaël G. Dürst"
 ---
 
@@ -11,6 +15,30 @@ author: "Adel Ben Snoussi, Eric Brandstätter, c, Nathanaël G. Dürst"
 ### Adel Ben Snoussi
 
 ### Eric Brandstätter
+
+
+#### 2) Here are 3 of my favorite emojis:
+
+
+  I like winter, so let's check some winter season emoji's out:
+
+                `r emo::ji('santa')`        `r emo::ji('snow')`        `r emo::ji('christmas')`
+                
+               
+
+#### 3) A small giphy and a larger one : 
+
+What about a small Yoda giphy :
+
+<img src='https://media.giphy.com/media/fItgT774J3nWw/giphy.gif' width='200' height='200' />
+
+And now check this large Nobel Peace prizeworthy giphy out : 
+
+<img src='https://media.giphy.com/media/VIcaanHSuNbSg68YQE/giphy.gif' width='400' height='400' />
+
+
+
+
 
 ### Nathanaël G. Dürst
 
