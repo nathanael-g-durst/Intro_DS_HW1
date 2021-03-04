@@ -85,9 +85,28 @@ knitr::kable(
 
 #### 6) A video of my choosing
 
+<!-- Add the parameter data-external="1" to the iframe -->
+
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/9_gkpYORQLU?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Exercise 1: R Markdown Syntax
+## R Markdown Syntax
+
+### 1) Cache error
+
+```{r}
+
+tenRandom = round(runif(10, min=0, max=10))
+avgTen = sum(tenRandom)/10
+
+```
+My 10 random numbers are : `r tenRandom``
+
+The average of the ten random numbers is : `r avgTen`
+
+```{r, cache=T}
+
+doubleAvg = avgTen*2
 
 
-
+```
+The double of the average is : `r doubleAvg``
