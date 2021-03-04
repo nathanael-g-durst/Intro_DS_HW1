@@ -1,6 +1,8 @@
 ---
 title: "HW1_exer1"
 output: html_document
+date: "`r format(Sys.time(), '%d %B - %Y')`"
+bibliography: 
 author: "Adel Ben Snoussi, Eric Brandstätter, c, Nathanaël G. Dürst"
 ---
 
