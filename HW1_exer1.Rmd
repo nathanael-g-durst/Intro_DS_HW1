@@ -8,14 +8,13 @@ author: "Adel Ben Snoussi, Eric Brandstätter, c, Nathanaël G. Dürst"
 
 ## Introduction
 
-### A
+### Adel Ben Snoussi
 
-### B
-
-### C
+### Eric Brandstätter
 
 ### Nathanaël G. Dürst
 
+## R Markdown Syntax
 
 ```{r}
 
