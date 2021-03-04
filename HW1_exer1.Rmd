@@ -1,18 +1,15 @@
 ---
-title: "HW1_exer1"
+title: "Homework Exercice I"
 output: html_document
-date: "`r format(Sys.time(), '%d %B - %Y')`"
-
-
-
-
-
-author: "Adel Ben Snoussi, Eric Brandstätter, c, Nathanaël G. Dürst"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+author: "Adel Ben Snoussi, Xxxxxx Xxxxxxx, Eric Brandstätter, Nathanaël G. Dürst"
 ---
 
 ## Introduction
 
 ### Adel Ben Snoussi
+
+### Xxxxxxx Xxxxxxx
 
 ### Eric Brandstätter
 
@@ -38,12 +35,59 @@ And now check this large Nobel Peace prizeworthy giphy out :
 
 
 
-
-
 ### Nathanaël G. Dürst
+
+#### 1) A picture of my choosing
+
+![IBM’s new 53-qubit quantum computer Photograph: Stephen Shankland/CNET](https://i.guim.co.uk/img/media/072b8138b2ebe4dc2816bf9b7bc8667b8ad0d35c/43_0_1125_675/master/1125.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=c5a61f889b74d31bd9bbfd92ff881e2a)
+
+#### 2) A quote that I like
+
+> Technology is a useful servant but a dangerous master. - Christian Lous Lange
+
+#### 3) Three emojis of my choosing
+
+The first one is a desktop, the second one is a glass of whisky and the last one is taken randomly from emojis linked to the keyword "music".
+
+`r emo::ji("desktop_computer")`
+`r emo::ji("whisky")`
+`r emo::ji("music")`
+
+#### 4) A couple of giphy
+
+##### - A large one
+
+<img src='https://media0.giphy.com/media/2zoFg7OGkcS82CPK44/giphy.gif?cid=ecf05e47wuenppt3z18atnls98hgtegux45cqhwd1ezbj41p&rid=giphy.gif' width='400' height='400' />
+
+##### - A small one
+
+<img src='https://media0.giphy.com/media/TjjrwHYKCv8wBIkWaz/giphy.gif?cid=ecf05e47h6ck4y3c92rou6bbbrqjmxb2w8lao2ibzh4j2aly&rid=giphy.gif' width='200' height='200' />
+
+#### 5) My schedule
+
+You can find below the times of all of the classes I am taking during this semester. 
+
+```{r, echo=F}
+
+classes = c("Atelier Entrepreneuriat", "Cas de comptabilité Financière", "Comptabilité Financière", "Consumer Behavior I", "Finance de l'immobilier", "Introduction to Data Science", "Introduction to Econometrics")
+
+times = c("10h15 - 14h00","10h15 - 12h00", "10h15 - 14h00", "14h15 - 18h00", "14h15 - 16h00", "14h15 - 18h00", "08h15 - 10h00 & 14h15 - 16h00")
+
+schedule = data.frame(classes, times)
+
+library("knitr")
+
+knitr::kable(
+  schedule
+)
+
+```
+
+#### 6) A video of my choosing
+
+<iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/9_gkpYORQLU?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Exercise 1: R Markdown Syntax
 
-```{r}
 
-```
+
