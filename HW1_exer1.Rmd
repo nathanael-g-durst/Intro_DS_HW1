@@ -1,7 +1,7 @@
 ---
 title: "HW1_exer1"
 output: html_document
-author: "a, b, c, Nathanaël G. Dürst"
+author: "Adel Ben Snoussi, b, c, Nathanaël G. Dürst"
 ---
 
 ## Introduction
