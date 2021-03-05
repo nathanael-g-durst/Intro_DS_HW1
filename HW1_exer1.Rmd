@@ -9,6 +9,78 @@ author: "Adel Ben Snoussi, Xxxxxx Xxxxxxx, Eric Brandstätter, Nathanaël G. Dü
 
 ### Adel Ben Snoussi
 
+#### 1) **Picture (with caption):**
+
+![In this Monday, March 16, 2020, file photo, traders work on the floor of the New York Stock Exchange near the end of the trading day. The New York Stock Exchange will partially reopen its trading floor, Tuesday, May 26, after closing it in late March due to the coronavirus pandemic.](https://www.gannett-cdn.com/presto/2020/05/14/USAT/c3b4754e-2497-4f9e-b531-9c2eebcf95fe-AP20135742738320.jpg?width=2560)
+
+#### 2) A quote that I Appreciate
+
+> Torture the Data and it will confess to anything. - Ronald Coase
+
+#### 3) Here are some nice emoji:
+
+The first one is an airplane, the second one is a rocket and the last one is a telescope.
+
+`r emo::ji("airplane")`
+`r emo::ji("rocket")`
+`r emo::ji("telescope")`
+
+#### 4) A couple of giphy
+
+##### - A small giphy and a larger one : 
+
+<img src='https://media.giphy.com/media/Y2siFL8PCUm5ucFBuS/giphy.gif' width="480" height="278" />
+
+<img src='https://media.giphy.com/media/3ml6jc6HQQYmqIYAen/giphy.gif' width="428" height="480" />
+
+#### 5) My schedule
+
+You can find below my schedule for this semester. 
+
+```{r, echo=F}
+
+classes = c("Macroéconomie", "Microeconomics II", "Cas de comptabilité Financière", "Business and Human Rights", "Introduction to Data Science", "Introduction to Econometrics")
+
+times = c("08h15 - 10h00 & 10h15 - 12h00", "10h15 - 12h00 & 12h15 - 14h00", "10h15 - 12h00", "10h15 - 12h00", "14h15 - 18h00", "08h15 - 10h00 & 14h15 - 16h00")
+
+schedule = data.frame(classes, times)
+
+library("knitr")
+
+knitr::kable(
+  schedule
+)
+
+```
+
+#### 6) A video of my choosing
+
+<!-- Add the parameter data-external="1" to the iframe -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i2JwFfjhgBI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## R Markdown Syntax
+
+### 1) Cache error
+
+```{r}
+
+tenRandom = round(runif(10, min=0, max=10))
+avgTen = mean(tenRandom)
+
+```
+My 10 random numbers are : `r tenRandom``
+
+The average of the ten random numbers is : `r avgTen`
+
+```{r, cache=T}
+
+doubleAvg = avgTen*2
+
+
+```
+The double of the average is : `r doubleAvg``
+
 ### Xxxxxxx Xxxxxxx
 
 ### Eric Brandstätter
