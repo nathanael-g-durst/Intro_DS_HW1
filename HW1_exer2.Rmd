@@ -1,8 +1,82 @@
 ---
-title: "Homework Exercice II"
-output: html_document
+title: "Financial Analysis"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 author: "Adel Ben Snoussi, Xxxxxx Xxxxxxx, Eric Brandstätter, Nathanaël G. Dürst"
+output: html_document
 ---
 
-## Introduction
+```{r, echo=F output=hide}
+
+#Load library
+
+library("quantmod")
+
+#List of the companies analyzed
+
+tickers = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+
+#Import data
+
+getSymbols.yahoo(
+  tickers,
+  env = globalenv(),
+  from = "2020-01-01",
+  to = "2021-01-01",
+  periodicity = "daily"
+)
+
+#Plot AAPL's closing price
+
+plot(AAPL$AAPL.Close)
+
+#Plot CSCO's closing price
+
+plot(CSCO$CSCO.Close)
+
+#Candle chart GOOG 2020 Q4
+
+candleChart(GOOG, subset = "2020-10/2020-12")
+
+#Candle chart JPM 2020 Q4
+
+candleChart(JPM, subset = "2020-10/2020-12")
+
+# --------------------- Anyway to automate this ? Loop ?
+
+#Computations AAPL
+
+meanAAPL = mean(AAPL$AAPL.Close)
+varAAPL = var(AAPL$AAPL.Close)
+
+#Computations CSCO
+
+meanCSCO = mean(CSCO$CSCO.Close)
+varCSCO = var(CSCO$CSCO.Close)
+
+#Computations INTC
+
+meanINTC = mean(INTC$INTC.Close)
+varINTC = var(INTC$INTC.Close)
+
+#Computations HD
+
+meanHD = mean(HD$HD.Close)
+varHD = var(HD$HD.Close)
+
+#Computations GOOG
+
+meanGOOG = mean(GOOG$GOOG.Close)
+varGOOG = var(GOOG$GOOG.Close)
+
+#Computations JPM
+
+meanJPM = mean(JPM$JPM.Close)
+varJPM = var(JPM$JPM.Close)
+
+# ---------------------
+
+library(PerformanceAnalytics)
+
+SharpeRatio(AAPL, Rf = 0.03)
+
+```
