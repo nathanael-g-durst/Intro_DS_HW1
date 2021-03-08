@@ -55,31 +55,7 @@ knitr::kable(
 
 #### 6) A video of my choosing
 
-<!-- Add the parameter data-external="1" to the iframe -->
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/i2JwFfjhgBI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## R Markdown Syntax
-
-### 1) Cache error
-
-```{r}
-
-tenRandom = round(runif(10, min=0, max=10))
-avgTen = mean(tenRandom)
-
-```
-My 10 random numbers are : `r tenRandom``
-
-The average of the ten random numbers is : `r avgTen`
-
-```{r, cache=T}
-
-doubleAvg = avgTen*2
-
-
-```
-The double of the average is : `r doubleAvg``
+<iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/i2JwFfjhgBI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Xxxxxxx Xxxxxxx
 
@@ -113,8 +89,6 @@ The double of the average is : `r doubleAvg``
 
 <img src='https://media.giphy.com/media/VIcaanHSuNbSg68YQE/giphy.gif' width='400' height='400' />
 
-
-
 #### 5) My schedule
 
 You can find the times of all of the classes I am taking during this semester below. 
@@ -137,12 +111,7 @@ knitr::kable(
 
 #### 6) Video of an exploding truck on the highway
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/S7wUIJJpvcE?start=96" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-###  Xxxxxxx Xxxxxxx
-
-
+<iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/S7wUIJJpvcE?start=96" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Nathanaël G. Dürst
 
@@ -194,7 +163,7 @@ knitr::kable(
 
 #### 6) A video of my choosing
 
-<!-- Add the parameter data-external="1" to the iframe -->
+<!-- Added the parameter data-external="1" to the iframe due to a Pandoc change causing a black square -->
 
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/9_gkpYORQLU?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -218,4 +187,75 @@ doubleAvg = avgTen*2
 
 
 ```
-The double of the average is : `r doubleAvg``
+The double of the average is : `r doubleAvg`
+
+### 2) Uniform distribution
+
+```{r}
+
+x = runif(100)
+meanX = mean(x)
+medianX = median(x)
+varianceX = var(x)
+
+```
+```{r, echo=F}
+
+if (meanX == 1/2 || medianX == 1/2 || varianceX == 1/12){
+  print("Well... that wasn't suppose to happen! The explanation about why the empirical value isn't equal to the theoretical value does not apply to one of the value below since we found the theoretical value with the data. Compute the file again, no way this happen twice in a row.")
+}
+
+```
+
+The mean of x is : `r meanX`
+
+The median of x is : `r medianX`
+
+The variance of x is : `r varianceX`
+
+<!-- Add the justification required in the homework file -->
+
+### 3) Histogram of x
+
+```{r, fig.cap = "This is an histogram"}
+
+hist(x)
+
+```
+
+### 4) Equation
+
+<!-- Copy of the LaTex equation in the homework file -->
+
+$$
+\begin{aligned}
+             \mathbb{E} \left[ \text{var} \left\{
+                             \boldsymbol{v}_1\left(
+                               \hat{\boldsymbol{\theta}},n\right) \big|
+                             \hat{\boldsymbol{\theta}} \right\}  \right] 
+&=
+                         \text{var} \left\{ \mathbf{v}_1\left(
+                             \boldsymbol{\theta}_0,n\right)  \right\}  +
+                         \mathbb{E} \left[\mathcal{O}_p\left\{
+{\bf D}_1(\boldsymbol{\theta}^*,n)(\hat{\boldsymbol{\theta}} - \boldsymbol{\theta}_{0}), 
+\dots,
+{\bf D}_p(\boldsymbol{\theta}^*,n)(\boldsymbol{\theta} - \boldsymbol{\theta}_{0})
+\right\}\right]\\
+            &= \text{var} \left\{ \mathbf{v}_1\left( \boldsymbol{\theta}_0,n\right)  \right\}  + \mathcal{O}\left(n^{-2}\right).
+    \end{aligned}
+$$
+
+### 5) Inline equation
+
+This is an inline equation $\mathbf{A} \equiv \left[a_{i,j}\right]_{i,j = 1, \ldots, p}$ !
+
+### 6) Blue sentence
+
+<span style="color:blue">\“Vérité dans un temps, erreur dans un autre.\”, Charles de Montesquieu</span>
+
+### 7) Button
+
+
+### 8) Colour box
+
+
