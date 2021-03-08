@@ -1,15 +1,17 @@
 ---
 title: "Homework Exercice I"
-output: html_document
 date: "`r format(Sys.time(), '%d %B %Y')`"
 author: "Adel Ben Snoussi, Xxxxxx Xxxxxxx, Eric Brandstätter, Nathanaël G. Dürst"
+output:
+  html_document :
+    code_folding: hide
 ---
 
 ## Introduction
 
 ### Adel Ben Snoussi
 
-#### 1) **Picture (with caption):**
+#### 1) Picture (with caption):
 
 ![In this Monday, March 16, 2020, file photo, traders work on the floor of the New York Stock Exchange near the end of the trading day. The New York Stock Exchange will partially reopen its trading floor, Tuesday, May 26, after closing it in late March due to the coronavirus pandemic.](https://www.gannett-cdn.com/presto/2020/05/14/USAT/c3b4754e-2497-4f9e-b531-9c2eebcf95fe-AP20135742738320.jpg?width=2560)
 
@@ -44,8 +46,6 @@ Classes = c("Macroéconomie", "Microeconomics II", "Cas de comptabilité Financi
 Times = c("08h15 - 10h00 & 10h15 - 12h00", "10h15 - 12h00 & 12h15 - 14h00", "10h15 - 12h00", "10h15 - 12h00", "14h15 - 18h00", "08h15 - 10h00 & 14h15 - 16h00")
 
 schedule = data.frame(Classes, Times)
-
-library("knitr")
 
 knitr::kable(
   schedule
@@ -101,8 +101,6 @@ times = c("08h15 - 12h00","10h15 - 12h00 & 12h15 - 14h00", "10h15 - 14h00", "14h
 
 schedule = data.frame(classes, times)
 
-library("knitr")
-
 knitr::kable(
   schedule
 )
@@ -125,11 +123,7 @@ knitr::kable(
 
 #### 3) Three emojis of my choosing
 
-The first one is a desktop, the second one is a glass of whisky and the last one is taken randomly from emojis linked to the keyword "music".
-
-`r emo::ji("desktop_computer")`
-`r emo::ji("whisky")`
-`r emo::ji("music")`
+The first one is a desktop `r emo::ji("desktop_computer")`, the second one is a glass of whisky `r emo::ji("whisky")` and the last one is drawn randomly from emojis linked to the keyword "music" `r emo::ji("music")`.
 
 #### 4) A couple of giphy
 
@@ -153,8 +147,6 @@ times = c("10h15 - 14h00","10h15 - 12h00", "10h15 - 14h00", "14h15 - 18h00", "14
 
 schedule = data.frame(classes, times)
 
-library("knitr")
-
 knitr::kable(
   schedule
 )
@@ -177,16 +169,17 @@ tenRandom = round(runif(10, min=0, max=10))
 avgTen = sum(tenRandom)/10
 
 ```
-My 10 random numbers are : `r tenRandom``
-
-The average of the ten random numbers is : `r avgTen`
 
 ```{r, cache=T}
 
 doubleAvg = avgTen*2
 
-
 ```
+
+My 10 random numbers are : `r tenRandom``
+
+The average of the ten random numbers is : `r avgTen`
+
 The double of the average is : `r doubleAvg`
 
 ### 2) Uniform distribution
@@ -213,7 +206,7 @@ The median of x is : `r medianX`
 
 The variance of x is : `r varianceX`
 
-<!-- Add the justification required in the homework file -->
+<!-- Add the justification required in the homework file : Are these results different from 1/2, 1/2 and 1/12 (their respective theoretical values)? Is this result surprising? Justify your answer.-->
 
 ### 3) Histogram of x
 
@@ -255,7 +248,21 @@ This is an inline equation $\mathbf{A} \equiv \left[a_{i,j}\right]_{i,j = 1, \ld
 
 ### 7) Button
 
+<button data-toggle="collapse" data-target="#hidden" class="collapsed" aria-expanded="false">
+  Show the hidden paragraph
+</button>
+
+<div id="hidden" class="collapse" aria-expanded="false" style="margin-top: 10px;" >
+  <p>This paragraph is hidden !</p>
+</div>
 
 ### 8) Colour box
 
+<!-- This is certainly more complex than necessary but I couldn't find a way to include bootstrap without braking the default knitr stylesheet-->
+
+<div style="position: relative; padding: .75rem 1.25rem 0rem 1.25rem; margin-bottom: 1rem; border: 1px solid; color: #004085; background-color: #cce5ff; border-color: #b8daff;">
+  <p><strong>Alert :</strong> This is a colour box</p>
+</div>
+
+## References
 
