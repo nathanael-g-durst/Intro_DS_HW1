@@ -5,20 +5,22 @@ author: "Adel Ben Snoussi, Xxxxxx Xxxxxxx, Eric Brandstätter, Nathanaël G. Dü
 output: html_document
 ---
 
-```{r, echo=F output=hide}
+```{r, echo="F", output="hide"}
 
 #Load library
 
 library("quantmod")
+library("dplyr")
+library("rlang")
 
 #List of the companies analyzed
 
-tickers = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+tickerList = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
 
 #Import data
 
 getSymbols.yahoo(
-  tickers,
+  tickerList,
   env = globalenv(),
   from = "2020-01-01",
   to = "2021-01-01",
@@ -40,6 +42,27 @@ candleChart(GOOG, subset = "2020-10/2020-12")
 #Candle chart JPM 2020 Q4
 
 candleChart(JPM, subset = "2020-10/2020-12")
+
+# -------------------- Loop to replace following section (NOT WORKING) --------------------
+# 
+# for (tickerName in tickerList) {
+# 
+#   currentTicker <- getSymbols(tickerName, auto.assign=FALSE)
+# 
+#   #Computation of the mean of the stock (replace mean(5))
+#   varName <- paste("mean",tickerName, sep = "")
+#   valueClose <- paste(tickerName,"$",tickerName,".Close", sep = "")
+#   assign(varName, mean(sym(valueClose)))
+# 
+#   #Computation of the variance of the stock (replace var(5))
+#   varName <- paste("var",tickerName, sep = "")
+#   assign(varName, var(5))
+# 
+#   rm(tickerName, currentTicker, varName, valueClose)
+# 
+# }
+# 
+# -------------------- END - Loop to replace following section --------------------
 
 # --------------------- Anyway to automate this ? Loop ?
 
@@ -75,8 +98,26 @@ varJPM = var(JPM$JPM.Close)
 
 # ---------------------
 
+#List of the companies analyzed
+
+tickers = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+
+#Import data
+
+getSymbols.yahoo(
+  tickers,
+  env = globalenv(),
+  from = "2011-01-01",
+  to = "2021-01-01",
+  periodicity = "daily"
+)
+
 library(PerformanceAnalytics)
 
-SharpeRatio(AAPL, Rf = 0.03)
+SharpeRatio.annualized(dailyReturn(AAPL), Rf = 0.03/252, scale = 252)
+
+SharpeRatio.annualized(dailyReturn(AAPL, subset="2011-01-01/2012-01-01"), Rf = 0.03/252, scale = 252)
+
+
 
 ```
