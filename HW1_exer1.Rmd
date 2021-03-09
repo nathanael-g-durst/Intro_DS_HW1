@@ -1,7 +1,7 @@
 ---
 title: "Homework Exercice I"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-author: "Adel Ben Snoussi, Xxxxxx Xxxxxxx, Eric Brandstätter, Nathanaël G. Dürst"
+author: "Adel Ben Snoussi, El-Amine Maamar, Eric Brandstätter, Nathanaël G. Dürst"
 output:
   html_document :
     code_folding: hide
