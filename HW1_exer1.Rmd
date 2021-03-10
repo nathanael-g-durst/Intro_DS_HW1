@@ -33,7 +33,7 @@ The first one is an airplane, the second one is a rocket and the last one is a t
 
 <img src='https://media.giphy.com/media/Y2siFL8PCUm5ucFBuS/giphy.gif' width="480" height="278" />
 
-<img src='https://media.giphy.com/media/3ml6jc6HQQYmqIYAen/giphy.gif' width="428" height="480" />
+<img src='https://media.giphy.com/media/3ml6jc6HQQYmqIYAen/giphy.gif' width="214" height="240" />
 
 #### 5) My schedule
 
@@ -192,10 +192,13 @@ medianX = median(x)
 varianceX = var(x)
 
 ```
+
 ```{r, echo=F}
 
 if (meanX == 1/2 || medianX == 1/2 || varianceX == 1/12){
+
   print("Well... that wasn't suppose to happen! The explanation about why the empirical value isn't equal to the theoretical value does not apply to one of the value below since we found the theoretical value with the data. Compute the file again, no way this happen twice in a row.")
+
 }
 
 ```
@@ -258,40 +261,9 @@ This is an inline equation $\mathbf{A} \equiv \left[a_{i,j}\right]_{i,j = 1, \ld
 
 ### 8) Colour box
 
-<!-- This is certainly more complex than necessary but I couldn't find a way to include bootstrap without braking the default knitr stylesheet-->
-
-<div style="position: relative; padding: .75rem 1.25rem 0rem 1.25rem; margin-bottom: 1rem; border: 1px solid; color: #004085; background-color: #cce5ff; border-color: #b8daff;">
-  <p><strong>Alert :</strong> This is a colour box</p>
-</div>
-
-<!-- Adel suggestion -->
-
-<div class="alert alert-success">
-<p><strong>Alert :</strong> This is a colour box</p>
+<div class="alert alert-warning">
+<p><strong>Warning :</strong> This is a colour box</p>
 </div>
 
 ## References
 
-```{r, echo=F}
-
-library(quantmod)
-library(zoo)
-
-# (2) Fetch data regarding Apple (AAPL), Cisco (CSCO), Intel Corporation (INTC), Home Depot (HD), Alphabet (GOOG), and JPMorgan Chase (JPM) stocks in the period between 2020-01-01 to 2021-01-01 using the package quantmod.
-
-ticker <- c("AAPL", "CSCO", "INTC", "HD", "GM", "GOOG", "JPM")
-getSymbols.yahoo(ticker, env=globalenv(), from="2020-01-01", to = "2021-01-01")
-
-#(3) Plot the closing price of AAPL and CSCO over the period between 2020-01-01 to 2021-01-01.
-
-data.raw <- merge.zoo(Cl(AAPL), Cl(CSCO))
-plot(data.raw)
-
-#(4) Plot a candle chart of GOOG and JPM over the last 3 months of 2020.
-
-ticker1 <- c("GOOG", "JPM")
-getSymbols.yahoo(ticker1, env=globalenv(), from="2020-10-01", to = "2020-12-31")
-data.raw1 <- merge.zoo(Cl(AAPL), Cl(CSCO))
-candleChart(data.raw1)
-
-```
