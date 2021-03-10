@@ -193,6 +193,8 @@ varianceX = var(x)
 
 ```
 
+<!-- Easter egg -->
+
 ```{r, echo=F}
 
 if (meanX == 1/2 || medianX == 1/2 || varianceX == 1/12){
@@ -203,13 +205,15 @@ if (meanX == 1/2 || medianX == 1/2 || varianceX == 1/12){
 
 ```
 
+<!-- End Easter egg -->
+
 The mean of x is : `r meanX`
 
 The median of x is : `r medianX`
 
 The variance of x is : `r varianceX`
 
-<!-- Add the justification required in the homework file : Are these results different from 1/2, 1/2 and 1/12 (their respective theoretical values)? Is this result surprising? Justify your answer.-->
+The mean, median and variance of x **differ from their theoretical values** (1/2, 1/2 and 1/12 respectively). This is **not surprising** at all with a universe of only 100 samples. The difference is due to **errors and inaccuracies**. The theoretical value is based on perfect conditions which are rarely to say the least observed in the real world. The observed value **will tend more and more to the theoretical value as we add samples**.
 
 ### 3) Histogram of x
 
