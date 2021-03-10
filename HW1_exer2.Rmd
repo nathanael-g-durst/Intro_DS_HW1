@@ -45,6 +45,16 @@ candleChart(JPM, subset = "2020-10/2020-12")
 
 # -------------------- Loop to replace following section (NOT WORKING) --------------------
 
+analyzeStock <- function(tickerName) {
+  
+  data <- coredata((tickerName))
+  returnsStock <- na.omit(ClCl(tickerName))
+  meanStock <- mean(returnsStock)
+  varStock <- var(returnsStock)
+  
+}
+
+
 for (tickerName in tickerList) {
 
   currentTicker <- getSymbols(tickerName, auto.assign=FALSE)
@@ -54,8 +64,12 @@ for (tickerName in tickerList) {
   varNameMe <- paste("mean",tickerName, sep = "")
   varNameVa <- paste("var",tickerName, sep = "")
   
+  tickerStock <- na.omit(ClCl(tickerName)))
+  meanStock <- 
+  varStock <- 
+  
   #Stock returns Close to Close (clCl) ---------------- Error, tickername not recognized as input
-  assign(varNameRe, na.omit(ClCl(tickerName)))
+  assign(varNameRe, returnsStock)
   
   #Returns median ---------------- Error, varNameRe not recognized as input
   assign(varNameMe, median(varNameRe))
@@ -74,6 +88,7 @@ rm(tickerName, currentTicker, varNameRe, varNameMe, varNameVa)
 
 #Computations AAPL
 
+returnsAAPL <- na.omit(ClCl(AAPL))
 meanAAPL = mean(AAPL$AAPL.Close)
 varAAPL = var(AAPL$AAPL.Close)
 
