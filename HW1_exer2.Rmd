@@ -1,23 +1,20 @@
 ---
 title: "Financial Analysis"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-author: "Adel Ben Snoussi, Xxxxxx Xxxxxxx, Eric Brandstätter, Nathanaël G. Dürst"
+author: "Adel Ben Snoussi, El-Amine Maamar, Eric Brandstätter, Nathanaël G. Dürst"
 output: html_document
 ---
 
 ```{r, echo="F", output="hide"}
 
 #Load library
-
 library("quantmod")
 library("PerformanceAnalytics")
 
 #List of the companies analyzed
-
 tickerList = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
 
 #Import data
-
 getSymbols.yahoo(
   tickerList,
   env = globalenv(),
@@ -27,19 +24,15 @@ getSymbols.yahoo(
 )
 
 #Plot AAPL's closing price
-
 plot(AAPL$AAPL.Close)
 
 #Plot CSCO's closing price
-
 plot(CSCO$CSCO.Close)
 
 #Candle chart GOOG 2020 Q4
-
 candleChart(GOOG, subset = "2020-10/2020-12")
 
 #Candle chart JPM 2020 Q4
-
 candleChart(JPM, subset = "2020-10/2020-12")
 
 #--------------- [START] Mean and Variance Loop ---------------#
@@ -101,5 +94,9 @@ for (tickerName in tickerList) {
 rm(varNameS, sharpeStock, tickerName)
 
 #--------------- [END] Sharpe ratio Loop ---------------#
+
+#--------------- [START] Weighted portfolio ---------------#
+
+weightPortfolio <- rep(100/length(tickerList), times = length(tickerList))
 
 ```
