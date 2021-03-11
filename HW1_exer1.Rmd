@@ -65,11 +65,7 @@ knitr::kable(
 
 ####  2-1) My favorite quote is 
 > "Learn from yesterday, live for today, hope for tomorrow. The
-important thing is not to stop". - Albert Einstein
-
-
-####  2-2) reference  
-@einstein20111
+important thing is not to stop". @einstein20111
 
 #### 3) Emojis 
 
