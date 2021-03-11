@@ -10,7 +10,6 @@ output: html_document
 #Load library
 
 library("quantmod")
-library("rlang")
 library("PerformanceAnalytics")
 
 #List of the companies analyzed
@@ -71,22 +70,36 @@ rm(returnsStock, varStock, meanStock, tickerName, varNameMe, varNameRe, varNameV
 
 #--------------- [END] Mean and Variance Loop ---------------#
 
-
-
 #Import data
 
-# getSymbols.yahoo(
-#   tickerList,
-#   env = globalenv(),
-#   from = "2011-01-01",
-#   to = "2021-01-01",
-#   periodicity = "daily"
-# )
-# 
-# SharpeRatio.annualized(dailyReturn(AAPL), Rf = 0.03/252, scale = 252)
-# 
-# SharpeRatio.annualized(dailyReturn(AAPL, subset="2011-01-01/2012-01-01"), Rf = 0.03/252, scale = 252)
+getSymbols.yahoo(
+  tickerList,
+  env = globalenv(),
+  from = "2011-01-01",
+  to = "2021-01-01",
+  periodicity = "daily"
+)
 
+#--------------- [START] Sharpe ratio Loop ---------------#
 
+########## This needs to be modified to use a matrix to store data (cleaner code on the recommendation of Lionel)
+
+for (tickerName in tickerList) {
+
+  #Variables' name generation
+  varNameS <- paste("sharpe",tickerName, sep = "")
+
+  #Computations
+  sharpeStock <- SharpeRatio.annualized(dailyReturn(get(tickerName)), Rf = 0.03/252, scale = 252)
+  
+  #Assigning values to their variables
+  assign(varNameS, sharpeStock)
+
+}
+
+#Cleaning environment after loop end
+rm(varNameS, sharpeStock, tickerName)
+
+#--------------- [END] Sharpe ratio Loop ---------------#
 
 ```
