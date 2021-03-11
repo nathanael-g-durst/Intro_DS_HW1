@@ -40,7 +40,7 @@ The first one is an airplane, the second one is a rocket and the last one is a t
 
 You can find below my schedule for this semester. 
 
-```{r, echo=F}
+```{r, echo=F, cache=T}
 
 Classes = c("Macroéconomie", "Microeconomics II", "Cas de comptabilité Financière", "Business and Human Rights", "Introduction to Data Science", "Introduction to Econometrics")
 
@@ -95,7 +95,7 @@ important thing is not to stop". - Albert Einstein
 | Microèconomie               | Tuesday 10h-12h        |
 | International trade         | Monday 8h-10h          |
 
-#### 6) Vedio :
+#### 6) Video :
 
 
 ### Eric Brandstätter
@@ -132,7 +132,7 @@ important thing is not to stop". - Albert Einstein
 
 You can find the times of all of the classes I am taking during this semester below. 
 
-```{r, echo=F}
+```{r, echo=F, cache=T}
 
 classes = c("International Management", "Algorithmique Appliquée", "Comptabilité Financière", "Consumer Behavior I", "Contrôle de gestion", "Introduction to Data Science", "Introduction to Econometrics","Optimisation et Gestion des Opérations","Introduction générale à la fiscalité 2021")
 
@@ -154,11 +154,11 @@ knitr::kable(
 
 #### 1) A picture of my choosing
 
-![IBM’s new 53-qubit quantum computer Photograph: Stephen Shankland/CNET](https://i.guim.co.uk/img/media/072b8138b2ebe4dc2816bf9b7bc8667b8ad0d35c/43_0_1125_675/master/1125.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=c5a61f889b74d31bd9bbfd92ff881e2a)
+![A close-up view of the IBM Q quantum computer. The processor is in the silver-colored cylinder. @cnet2019](https://cnet2.cbsistatic.com/img/wb8bwrlDiqJxaf7KJvoaPFvwxf8=/1092x0/2019/06/26/3f76e99d-8055-46f3-8f27-558ee276b665/20180405-ibm-q-quantum-computer-02.jpg)
 
 #### 2) A quote that I like
 
-> Technology is a useful servant but a dangerous master. - Christian Lous Lange
+> Technology is a useful servant but a dangerous master. - @nobel1921
 
 #### 3) Three emojis of my choosing
 
@@ -178,7 +178,7 @@ The first one is a desktop `r emo::ji("desktop_computer")`, the second one is a 
 
 You can find below the times of all of the classes I am taking during this semester. 
 
-```{r, echo=F}
+```{r, echo=F, cache=T}
 
 classes = c("Atelier Entrepreneuriat", "Cas de comptabilité Financière", "Comptabilité Financière", "Consumer Behavior I", "Finance de l'immobilier", "Introduction to Data Science", "Introduction to Econometrics")
 
@@ -197,6 +197,8 @@ knitr::kable(
 <!-- Added the parameter data-external="1" to the iframe due to a Pandoc change causing a black square -->
 
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/9_gkpYORQLU?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+@polyphia2018
 
 ## R Markdown Syntax
 
@@ -256,7 +258,7 @@ The mean, median and variance of x **differ from their theoretical values** (1/2
 
 ### 3) Histogram of x
 
-```{r, fig.cap = "This is an histogram"}
+```{r, fig.cap = "This is an histogram", cache=T}
 
 hist(x)
 
