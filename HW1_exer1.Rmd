@@ -102,11 +102,11 @@ important thing is not to stop". - Albert Einstein
 
 #### 1) A picture with caption
 
-![SpaceX put its Starship super-rocket through its first high-altitude test today — and although the flight ended in a fiery crash, the performance was impressive enough to draw congratulations from Jeff Bezos, who’s locked in a multibillion-dollar rivalry with SpaceX CEO Elon Musk.](https://cdn.geekwire.com/wp-content/uploads/2020/12/201210-spacex-1260x840.jpg)
+![SpaceX put its Starship super-rocket through its first high-altitude test today — and although the flight ended in a fiery crash, the performance was impressive enough to draw congratulations from Jeff Bezos, who’s locked in a multibillion-dollar rivalry with SpaceX CEO Elon Musk. @spaceX](https://cdn.geekwire.com/wp-content/uploads/2020/12/201210-spacex-1260x840.jpg)
 
 #### 2) An inspiring quote 
 
-> “If you can't explain it to a six year old, you don't understand it yourself.”  - Albert Einstein
+> “If you can't explain it to a six year old, you don't understand it yourself.”  @einstein99
 
 
 #### 3) Here are 3 emojis of my choosing
@@ -149,6 +149,8 @@ knitr::kable(
 #### 6) Video of an exploding truck on the highway
 
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/S7wUIJJpvcE?start=96" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+@truckx
 
 ### Nathanaël G. Dürst
 
