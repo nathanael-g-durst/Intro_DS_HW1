@@ -1,7 +1,8 @@
 ---
 title: "Homework Exercice I"
-date: "`r format(Sys.time(), '%d %B %Y')`"
 author: "Adel Ben Snoussi, El-Amine Maamar, Eric Brandstätter, Nathanaël G. Dürst"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+bibliography: biblio.bib
 output:
   html_document :
     code_folding: hide
@@ -57,7 +58,44 @@ knitr::kable(
 
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/i2JwFfjhgBI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Xxxxxxx Xxxxxxx
+### El-Amine Maamar
+####  1)  Picture with A caption
+![GSEM](https://mediaserver.unige.ch/img/thumbnails/84844_big.jpg)
+
+
+####  2-1) My favorite quote is 
+> "Learn from yesterday, live for today, hope for tomorrow. The
+important thing is not to stop". - Albert Einstein
+
+####  2-2) reference  
+@einstein20111
+
+#### 3) Emojis 
+
+`r emo::ji("smartphone")`
+`r emo::ji("pc")`
+`r emo::ji("car")`
+   
+#### 4) A small giphy and a larger one
+
+#### 4-1)  A large giphy :
+
+<img src ='https://media.giphy.com/media/WQUT1clkmL4qvHsD8U/giphy.gif' width='400' height='400' />
+ 
+#### 4-2) Small gigh :
+<img src ='https://media.giphy.com/media/9V8YgCQwTdasngJ58N/giphy.gif/giphy.gif' width='200' height='200' />
+
+#### 5) My schedule
+
+|      The classe             | the time of the classe |
+|-----------------------------|------------------------|
+| Introduction to data Scienc |  Thursday 14h-18h      |
+| Macroèconomie               | Friday 14h-16h         |
+| Microèconomie               | Tuesday 10h-12h        |
+| International trade         | Monday 8h-10h          |
+
+#### 6) Vedio :
+
 
 ### Eric Brandstätter
 
