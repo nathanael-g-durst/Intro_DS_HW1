@@ -43,95 +43,49 @@ candleChart(GOOG, subset = "2020-10/2020-12")
 
 candleChart(JPM, subset = "2020-10/2020-12")
 
-# -------------------- Loop to replace following section (NOT WORKING) --------------------
+#--------------- [START] Mean and Variance Loop ---------------#
 
-analyzeStock <- function(tickerName) {
-  
-  data <- coredata((tickerName))
-  returnsStock <- na.omit(ClCl(tickerName))
-  meanStock <- mean(returnsStock)
-  varStock <- var(returnsStock)
-  
-}
-
+########## This needs to be modified to use a matrix to store data (cleaner code on the recommendation of Lionel)
 
 for (tickerName in tickerList) {
 
-  currentTicker <- getSymbols(tickerName, auto.assign=FALSE)
-
-  #Variable names
+  #Variables' name generation
   varNameRe <- paste("returns",tickerName, sep = "")
   varNameMe <- paste("mean",tickerName, sep = "")
   varNameVa <- paste("var",tickerName, sep = "")
+
+  #Computations
+  returnsStock <- na.omit(ClCl(get(tickerName)))
+  meanStock <- mean(returnsStock)
+  varStock <- var(returnsStock)
   
-  tickerStock <- na.omit(ClCl(tickerName)))
-  meanStock <- 
-  varStock <- 
-  
-  #Stock returns Close to Close (clCl) ---------------- Error, tickername not recognized as input
+  #Assigning values to their variables
   assign(varNameRe, returnsStock)
-  
-  #Returns median ---------------- Error, varNameRe not recognized as input
-  assign(varNameMe, median(varNameRe))
-  
-  #Returns variance ---------------- Error, varNameRe not recognized as input
-  assign(varNameVa, var(varNameRe))
+  assign(varNameMe, meanStock)
+  assign(varNameVa, varStock)
 
 }
 
 #Cleaning environment after loop end
-rm(tickerName, currentTicker, varNameRe, varNameMe, varNameVa)
+rm(returnsStock, varStock, meanStock, tickerName, varNameMe, varNameRe, varNameVa)
 
-# -------------------- END - Loop to replace following section --------------------
+#--------------- [END] Mean and Variance Loop ---------------#
 
-# --------------------- Anyway to automate this ? Loop ? Also wrong computation
 
-#Computations AAPL
-
-returnsAAPL <- na.omit(ClCl(AAPL))
-meanAAPL = mean(AAPL$AAPL.Close)
-varAAPL = var(AAPL$AAPL.Close)
-
-#Computations CSCO
-
-meanCSCO = mean(CSCO$CSCO.Close)
-varCSCO = var(CSCO$CSCO.Close)
-
-#Computations INTC
-
-meanINTC = mean(INTC$INTC.Close)
-varINTC = var(INTC$INTC.Close)
-
-#Computations HD
-
-meanHD = mean(HD$HD.Close)
-varHD = var(HD$HD.Close)
-
-#Computations GOOG
-
-meanGOOG = mean(GOOG$GOOG.Close)
-varGOOG = var(GOOG$GOOG.Close)
-
-#Computations JPM
-
-meanJPM = mean(JPM$JPM.Close)
-varJPM = var(JPM$JPM.Close)
-
-# ---------------------
 
 #Import data
 
-getSymbols.yahoo(
-  tickerList,
-  env = globalenv(),
-  from = "2011-01-01",
-  to = "2021-01-01",
-  periodicity = "daily"
-)
-
-SharpeRatio.annualized(dailyReturn(AAPL), Rf = 0.03/252, scale = 252)
-
-SharpeRatio.annualized(dailyReturn(AAPL, subset="2011-01-01/2012-01-01"), Rf = 0.03/252, scale = 252)
+# getSymbols.yahoo(
+#   tickerList,
+#   env = globalenv(),
+#   from = "2011-01-01",
+#   to = "2021-01-01",
+#   periodicity = "daily"
+# )
+# 
+# SharpeRatio.annualized(dailyReturn(AAPL), Rf = 0.03/252, scale = 252)
+# 
+# SharpeRatio.annualized(dailyReturn(AAPL, subset="2011-01-01/2012-01-01"), Rf = 0.03/252, scale = 252)
 
 
 
