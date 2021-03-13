@@ -64,6 +64,8 @@ rm(returnsStock, varStock, meanStock, tickerName, varNameMe, varNameRe, varNameV
 
 #--------------- [END] Mean and Variance Loop ---------------#
 
+#--------------- [START] Sharpe ratio ---------------#
+
 #Import data
 
 getSymbols.yahoo(
@@ -96,7 +98,9 @@ rm(varNameS, sharpeStock, tickerName)
 
 #--------------- [END] Sharpe ratio Loop ---------------#
 
-#--------------- [START] Weighted portfolio ---------------#
+#--------------- [END] Sharpe ratio ---------------#
+
+#--------------- [START] Weighted portfolio - Uses the first set of data ---------------#
 
 weightPortfolio <- rep((100/length(tickerList))/100, times = length(tickerList))
 
@@ -117,5 +121,10 @@ returnsPortfolio <- Return.portfolio(returnsAll, weights = weightPortfolio)
 names(returnsPortfolio) <- "Portfolio"
 
 varPortfolio <- var(returnsPortfolio)
+
+#--------------- [END] Weighted portfolio ---------------#
+
+#--------------- [START] Efficient frontier ---------------#
+
 
 ```
