@@ -48,6 +48,7 @@ for (tickerName in tickerList) {
 
   #Computations
   returnsStock <- na.omit(ClCl(get(tickerName)))
+  names(returnsStock) <- tickerName
   meanStock <- mean(returnsStock)
   varStock <- var(returnsStock)
   
@@ -97,6 +98,24 @@ rm(varNameS, sharpeStock, tickerName)
 
 #--------------- [START] Weighted portfolio ---------------#
 
-weightPortfolio <- rep(100/length(tickerList), times = length(tickerList))
+weightPortfolio <- rep((100/length(tickerList))/100, times = length(tickerList))
+
+returnsAll <- NULL
+
+for (tickerName in tickerList) {
+
+  varNameRe <- paste("returns",tickerName, sep = "")
+  returnsStock <- get(varNameRe)
+  returnsAll <- merge.xts(returnsAll, returnsStock)
+
+}
+
+#Cleaning environment after loop end
+rm(varNameRe, returnsStock, tickerName)
+
+returnsPortfolio <- Return.portfolio(returnsAll, weights = weightPortfolio)
+names(returnsPortfolio) <- "Portfolio"
+
+varPortfolio <- var(returnsPortfolio)
 
 ```
