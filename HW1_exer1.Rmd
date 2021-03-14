@@ -270,20 +270,70 @@ hist(x)
 
 $$
 \begin{aligned}
-             \mathbb{E} \left[ \text{var} \left\{
-                             \boldsymbol{v}_1\left(
-                               \hat{\boldsymbol{\theta}},n\right) \big|
-                             \hat{\boldsymbol{\theta}} \right\}  \right] 
+\mathbb{E}
+\left[
+  \text{var}
+  \left\{
+    \boldsymbol{v}_1
+      \left(
+        \hat{\boldsymbol{\theta}},n
+      \right)
+      \big|
+      \hat{\boldsymbol{\theta}}
+  \right\}
+\right] 
 &=
-                         \text{var} \left\{ \mathbf{v}_1\left(
-                             \boldsymbol{\theta}_0,n\right)  \right\}  +
-                         \mathbb{E} \left[\mathcal{O}_p\left\{
-{\bf D}_1(\boldsymbol{\theta}^*,n)(\hat{\boldsymbol{\theta}} - \boldsymbol{\theta}_{0}), 
-\dots,
-{\bf D}_p(\boldsymbol{\theta}^*,n)(\boldsymbol{\theta} - \boldsymbol{\theta}_{0})
-\right\}\right]\\
-            &= \text{var} \left\{ \mathbf{v}_1\left( \boldsymbol{\theta}_0,n\right)  \right\}  + \mathcal{O}\left(n^{-2}\right).
-    \end{aligned}
+\text{var}
+\left\{
+  \mathbf{v}_1
+  \left(
+    \boldsymbol{\theta}_0,n
+  \right)
+\right\}
++
+\mathbb{E}
+\left[
+  \mathcal{O}_p
+  \left\{
+    {\bf D}_1
+    (
+      \boldsymbol{\theta}^*,n
+    )
+    (
+      \hat{\boldsymbol{\theta}}
+      -
+      \boldsymbol{\theta}_{0}
+    )
+    ,
+    \dots
+    ,
+    {\bf D}_p
+    (
+      \boldsymbol{\theta}^*,n
+    )
+    (
+      \boldsymbol{\theta}
+      -
+      \boldsymbol{\theta}_{0}
+    )
+  \right\}
+\right]
+\\
+&=
+\text{var}
+\left\{
+  \mathbf{v}_1
+  \left(
+    \boldsymbol{\theta}_0,n
+  \right)
+\right\}
++
+\mathcal{O}
+\left(
+  n^{-2}
+\right)
+.
+\end{aligned}
 $$
 
 ### 5) Inline equation
