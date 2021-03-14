@@ -10,15 +10,15 @@ output:
 
 ## Introduction
 
-### Adel Ben Snoussi
+* ### Adel Ben Snoussi
 
 #### 1) Picture (with caption):
 
 ![In this Monday, March 16, 2020, file photo, traders work on the floor of the New York Stock Exchange near the end of the trading day. The New York Stock Exchange will partially reopen its trading floor, Tuesday, May 26, after closing it in late March due to the coronavirus pandemic.](https://www.gannett-cdn.com/presto/2020/05/14/USAT/c3b4754e-2497-4f9e-b531-9c2eebcf95fe-AP20135742738320.jpg?width=2560)
 
-#### 2) A quote that I Appreciate
+#### 2) A quote that I appreciate
 
-> Torture the Data and it will confess to anything. - Ronald Coase
+> Torture the Data and it will confess to anything. - Ronald Coase @posner1993ronald
 
 #### 3) Here are some nice emoji:
 
@@ -30,11 +30,11 @@ The first one is an airplane, the second one is a rocket and the last one is a t
 
 #### 4) A couple of giphy
 
-##### - A small giphy and a larger one : 
-
-<img src='https://media.giphy.com/media/Y2siFL8PCUm5ucFBuS/giphy.gif' width="480" height="278" />
+##### A small giphy and a larger one : 
 
 <img src='https://media.giphy.com/media/3ml6jc6HQQYmqIYAen/giphy.gif' width="214" height="240" />
+
+<img src='https://media.giphy.com/media/Y2siFL8PCUm5ucFBuS/giphy.gif' width="480" height="278" />
 
 #### 5) My schedule
 
@@ -58,12 +58,14 @@ knitr::kable(
 
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/i2JwFfjhgBI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### El-Amine Maamar
+
+* ### El-Amine Maamar
+
 ####  1)  Picture with A caption
 ![GSEM](https://mediaserver.unige.ch/img/thumbnails/84844_big.jpg)
 
 
-####  2-1) My favorite quote is 
+####  2) My favorite quote is 
 > "Learn from yesterday, live for today, hope for tomorrow. The
 important thing is not to stop". @einstein20111
 
@@ -79,7 +81,8 @@ important thing is not to stop". @einstein20111
 
 <img src ='https://media.giphy.com/media/WQUT1clkmL4qvHsD8U/giphy.gif' width='400' height='400' />
  
-#### 4-2) Small gigh :
+#### 4-2) Small gighy :
+
 <img src ='https://media.giphy.com/media/9V8YgCQwTdasngJ58N/giphy.gif/giphy.gif' width='200' height='200' />
 
 #### 5) My schedule
@@ -95,7 +98,7 @@ important thing is not to stop". @einstein20111
 
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/Ndgg4qfI2jQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Eric Brandstätter
+* ### Eric Brandstätter
 
 #### 1) A picture with caption
 
@@ -111,8 +114,6 @@ important thing is not to stop". @einstein20111
 ##### I like winter, so let's check some winter season emoji's out: 
 
                 `r emo::ji('santa')`        `r emo::ji('snow')`        `r emo::ji('christmas')`
-                
-               
 
 #### 4) A small giphy and a larger one  
 
@@ -149,7 +150,7 @@ knitr::kable(
 
 @truckx
 
-### Nathanaël G. Dürst
+* ### Nathanaël G. Dürst
 
 #### 1) A picture of my choosing
 
