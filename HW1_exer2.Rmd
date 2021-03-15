@@ -106,6 +106,8 @@ weightPortfolio <- rep((100/length(tickerList))/100, times = length(tickerList))
 
 returnsAll <- NULL
 
+########## This needs to be modified to use a matrix to store data (cleaner code on the recommendation of Lionel)
+
 for (tickerName in tickerList) {
 
   varNameRe <- paste("returns",tickerName, sep = "")
