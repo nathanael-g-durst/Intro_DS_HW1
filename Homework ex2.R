@@ -85,26 +85,22 @@ diag(Sigma)
 
 # Question 8
 
+# Compute optimum portfolio
 var = rep(1,6)
 inv_Sigma = solve(Sigma)
 P = as.numeric( inv_Sigma %*% var / as.numeric(t(var) %*% inv_Sigma %*% var))
 
 optimum_return = AAPL_return*P[1] + CSCO_return*P[2] + INTC_return*P[3] + HD_return*P[4] + GOOG_return*P[5] + JPM_return*P[6]
+min_var = apply(optimum_return, 2, var)
+mean_optimum_return = apply(optimum_return, 2, mean)
 
 
-# Compute omega^*
-omega_star <- (Sigma[2, 2] - Sigma[1, 2])/(Sigma[1, 1] + Sigma[2, 2] - 2*Sigma[1, 2])
 
-# Compute investment expected value and variance
-mu_investment <- omega_star*mu[1] + (1 - omega_star)*mu[2]
-var_investment <- omega_star^2*Sigma[1,1] + (1 - omega_star)^2*Sigma[2,2] + 
-  2*omega_star*(1 - omega_star)*Sigma[1,2]
-
-investment_summary <- matrix(NA, 2, 7)
+investment_summary <- matrix(NA, 2, 8)
 dimnames(investment_summary)[[1]] <- c("Expected value", "Variance")
-dimnames(investment_summary)[[2]] <- c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM", "Investment")
-investment_summary[1, ] <- c(mu, mu_investment)
-investment_summary[2, ] <- c(diag(Sigma), var_investment)
+dimnames(investment_summary)[[2]] <- c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM", "Min_var", "Equal")
+investment_summary[1, ] <- c(mu, mean_optimum_return, mu_equal)
+investment_summary[2, ] <- c(diag(Sigma), min_var, var_equal)
 knitr::kable(investment_summary)
 
 plot((sqrt(investment_summary[2, ])), investment_summary[1, ],
@@ -119,6 +115,6 @@ plot((sqrt(investment_summary[2, ])), investment_summary[1, ],
      cex = 1,
      pch = 19,
 grid())
-text(sqrt(investment_summary[2, ]), investment_summary[1, ], labels = names(investment_summary[2, ]), cex = 0.7, pos = 3)
+text(sqrt(investment_summary[2, ]), investment_summary[1, ], labels = names(investment_summary[2, ]), cex = 0.5, pos = 3)
 
 
