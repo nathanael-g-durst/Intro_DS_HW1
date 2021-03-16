@@ -60,6 +60,11 @@ sdJPM = apply(JPM_return, 2, sd)
 
 JPM_yearly_sharpe = mean(JPM_ex_return)/sdJPM[1]*sqrt(252)
 
+yearly_sharpe = cbind(AAPL_yearly_sharpe, CSCO_yearly_sharpe, CSCO_yearly_sharpe, INTC_yearly_sharpe, HD_yearly_sharpe, JPM_yearly_sharpe)
+colnames(yearly_sharpe) = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+yearly_sharpe
+
+
 # Question 7
 
 mat_return = cbind(AAPL_return,CSCO_return, INTC_return, HD_return, GOOG_return, JPM_return)
