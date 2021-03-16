@@ -50,7 +50,7 @@ for (tickerName in tickerList) {
   returnsStock <- na.omit(ClCl(get(tickerName)))
   names(returnsStock) <- tickerName
   meanStock <- mean(returnsStock)
-  varStock <- var(returnsStock)
+  varStock <- as.numeric(var(returnsStock))
   
   #Assigning values to their variables
   assign(varNameRe, returnsStock)
@@ -85,22 +85,21 @@ riskFree <- 0.03/252
 for (tickerName in tickerList) {
 
   #Variables' name generation
-  varNameDR <- paste("dailyReturn",tickerName, sep = "")
-  varNameER <- paste("excessReturn",tickerName, sep = "")
   varNameS <- paste("sharpe",tickerName, sep = "")
 
   #Computations
   dailyReturnStock <- dailyReturn(get(tickerName))
+  sdStock <- sd(dailyReturnStock)
   excessReturnStock <- dailyReturnStock - riskFree
-  sharpeStock <- SharpeRatio.annualized(dailyReturn(get(tickerName)), Rf = 0.03/252, scale = 252)
-  
+  sharpeStock <- mean(excessReturnStock)/sdStock*sqrt(252)
+
   #Assigning values to their variables
   assign(varNameS, sharpeStock)
 
 }
 
 #Cleaning environment after loop end
-rm(varNameS, sharpeStock, tickerName)
+rm(varNameS, dailyReturnStock, sdStock, excessReturnStock, sharpeStock, tickerName)
 
 #--------------- [END] Sharpe ratio Loop ---------------#
 
@@ -108,7 +107,7 @@ rm(varNameS, sharpeStock, tickerName)
 
 #--------------- [START] Weighted portfolio - Uses the first set of data ---------------#
 
-weightPortfolio <- rep((100/length(tickerList))/100, times = length(tickerList))
+weightPortfolio <- rep((1/length(tickerList)), times = length(tickerList))
 
 returnsAll <- NULL
 
@@ -116,19 +115,19 @@ returnsAll <- NULL
 
 for (tickerName in tickerList) {
 
-  varNameRe <- paste("returns",tickerName, sep = "")
-  returnsStock <- get(varNameRe)
-  returnsAll <- merge.xts(returnsAll, returnsStock)
-
+  dailyReturnStock <- dailyReturn(get(tickerName), subset = "2020-01-01/2021-01-01")
+  returnsAll <- merge.xts(returnsAll, dailyReturnStock)
 }
 
+names(returnsAll) <- tickerList
+
 #Cleaning environment after loop end
-rm(varNameRe, returnsStock, tickerName)
+rm(dailyReturnStock, tickerName)
 
 returnsPortfolio <- Return.portfolio(returnsAll, weights = weightPortfolio)
 names(returnsPortfolio) <- "Portfolio"
 
-varPortfolio <- var(returnsPortfolio)
+varPortfolio <- as.numeric(var(returnsPortfolio))
 
 #--------------- [END] Weighted portfolio ---------------#
 
