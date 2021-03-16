@@ -80,12 +80,18 @@ getSymbols.yahoo(
 
 ########## This needs to be modified to use a matrix to store data (cleaner code on the recommendation of Lionel)
 
+riskFree <- 0.03/252
+
 for (tickerName in tickerList) {
 
   #Variables' name generation
+  varNameDR <- paste("dailyReturn",tickerName, sep = "")
+  varNameER <- paste("excessReturn",tickerName, sep = "")
   varNameS <- paste("sharpe",tickerName, sep = "")
 
   #Computations
+  dailyReturnStock <- dailyReturn(get(tickerName))
+  excessReturnStock <- dailyReturnStock - riskFree
   sharpeStock <- SharpeRatio.annualized(dailyReturn(get(tickerName)), Rf = 0.03/252, scale = 252)
   
   #Assigning values to their variables
