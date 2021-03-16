@@ -52,7 +52,7 @@ meanGOOG = apply(GOOG_return, 2, mean)
 varGOOG = apply(GOOG_return, 2, var)
 sdGOOG = apply(GOOG_return, 2, sd)
 
-AAPL_yearly_sharpe = mean(GOOG_ex_return)/sdGOOG[1]*sqrt(252)
+GOOG_yearly_sharpe = mean(GOOG_ex_return)/sdGOOG[1]*sqrt(252)
 
 meanJPM = apply(JPM_return, 2, mean)
 varJPM = apply(JPM_return, 2, var)
