@@ -97,7 +97,7 @@ var_investment <- omega_star^2*Sigma[1,1] + (1 - omega_star)^2*Sigma[2,2] +
 
 investment_summary <- matrix(NA, 2, 7)
 dimnames(investment_summary)[[1]] <- c("Expected value", "Variance")
-dimnames(investment_summary)[[2]] <- c("Apple", "Cisco","Intel Corporation" ,"Home Depot","Alphabet","JPMorgan Chase", "Investment")
+dimnames(investment_summary)[[2]] <- c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM", "Investment")
 investment_summary[1, ] <- c(mu, mu_investment)
 investment_summary[2, ] <- c(diag(Sigma), var_investment)
 knitr::kable(investment_summary)
@@ -111,7 +111,7 @@ plot((investment_summary[2, ]), investment_summary[1, ],
      col = 1:8,
      cex = 1,
      pch = 19,
-grid(),
-text(investment_summary[2, ], investment_summary[1, ], labels = names(investment_summary[2, ]), cex = 0.7, pos = 1)
-)
+grid())
+text(investment_summary[2, ], investment_summary[1, ], labels = names(investment_summary[2, ]), cex = 0.7, pos = 3)
+
 
