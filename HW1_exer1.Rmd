@@ -10,7 +10,7 @@ output:
 
 ## Introduction
 
-* ### Adel Ben Snoussi
+### Adel Ben Snoussi
 
 #### 1) Picture (with caption):
 
@@ -59,7 +59,7 @@ knitr::kable(
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/i2JwFfjhgBI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-* ### El-Amine Maamar
+### El-Amine Maamar
 
 ####  1)  Picture with A caption
 ![GSEM](https://mediaserver.unige.ch/img/thumbnails/84844_big.jpg)
@@ -98,7 +98,7 @@ important thing is not to stop". @einstein20111
 
 <iframe width="560" height="315" data-external="1" src="https://www.youtube.com/embed/Ndgg4qfI2jQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-* ### Eric Brandstätter
+### Eric Brandstätter
 
 #### 1) A picture with caption
 
@@ -150,7 +150,7 @@ knitr::kable(
 
 @truckx
 
-* ### Nathanaël G. Dürst
+### Nathanaël G. Dürst
 
 #### 1) A picture of my choosing
 
