@@ -243,7 +243,7 @@ varPortfolio <- as.numeric(var(returnsPortfolio))
 
 ```
 
-## Optimum portfolio
+## Equally weighted portfolio
 
 ```{r, echo=F, results="hide", message=F, warning=F}
 
@@ -278,6 +278,8 @@ diag(Sigma)
 ```
 
 And the variance of the equally weighted portfolio is `r var_equal` which is smaller than the variance of the indivual return of any stocks.
+
+## Optimum portfolio
 
 ```{r, echo=F, results="hide", message=F, warning=F}
 
