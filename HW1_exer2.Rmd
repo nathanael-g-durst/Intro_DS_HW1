@@ -198,6 +198,12 @@ They belong to **Cisco and Apple** respectively.
 
 Between them, we find the others : `r sort(c(sharpeGOOG, sharpeHD, sharpeJPM, sharpeINTC))` (INTC, JPM, GOOG, HD).
 
+```{r, echo=F, message=F, warning=F}
+yearly_sharpe = cbind(sharpeAAPL, sharpeCSCO, sharpeINTC, sharpeHD,sharpeGOOG, sharpeJPM)
+colnames(yearly_sharpe) = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+yearly_sharpe
+```
+
 ```{r, echo=F, results="hide", message=F, warning=F}
 
 #--------------- [START] Weighted portfolio - Uses the first set of data for comparison ---------------#
@@ -228,12 +234,6 @@ varPortfolio <- as.numeric(var(returnsPortfolio))
 
 ```
 
-## Equally weighted portfolio
-
-The variance of an equally weighted portfolio of those stocks is `r varPortfolio`.
-
-Compared to the variance of all of the individual stocks : `r sort(c(varAAPL, varGOOG, varINTC, varHD, varCSCO, varJPM))`, we can clearly see the benefits of diversification. Only Google has a variance lower than our portfolio.
-
 ## Optimum portfolio
 
 ```{r, echo=F, results="hide", message=F, warning=F}
@@ -258,9 +258,19 @@ equal_return = (AAPL_return + CSCO_return + INTC_return + HD_return + GOOG_retur
 
 mu_equal = mean(equal_return)
 var_equal = var(equal_return)
+```
 
-#  stocks variances
-diag(Sigma)  
+The individual variance of these 6 stocks are:
+
+```{r, echo=F}
+
+diag(Sigma)
+
+```
+
+And the variance of the equally weighted portfolio is `r var_equal` which is smaller than the variance of the indivual return of any stocks.
+
+```{r, echo=F, results="hide", message=F, warning=F}
 
 var = rep(1,6)
 inv_Sigma = solve(Sigma)
@@ -296,3 +306,6 @@ text(sqrt(investment_summary[2, ]), investment_summary[1, ], labels = names(inve
 #--------------- [END] Compute optimum portfolio ---------------#
 
 ```
+
+As we may notice from the graph, the equally weighted portfolio performs well in a way that it offers both upside potential with relatively high investment output and downside protection with low investment risk.
+But the optimum portfolio performs better with lower investment risk and higher returns.
