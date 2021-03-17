@@ -273,7 +273,9 @@ var_equal = var(equal_return)
 The individual variance of these 6 stocks are:
 
 ```{r, echo=F}
-diag(Sigma)
+diag_Sigma_mat = cbind(diag(Sigma)[[1]][1],diag(Sigma)[[2]][1],diag(Sigma)[[3]][1],diag(Sigma)[[4]][1],diag(Sigma)[[5]][1],diag(Sigma)[[6]][1])
+colnames(diag_Sigma_mat) = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+knitr::kable(diag_Sigma_mat)
 ```
 
 And the variance of the equally weighted portfolio is `r var_equal` which is smaller than the variance of the indivual return of any stocks.
