@@ -210,7 +210,8 @@ Between them, we find the others : `r sort(c(sharpeGOOG, sharpeHD, sharpeJPM, sh
 ```{r, echo=F, message=F, warning=F}
 yearly_sharpe = cbind(sharpeAAPL, sharpeCSCO, sharpeINTC, sharpeHD,sharpeGOOG, sharpeJPM)
 colnames(yearly_sharpe) = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
-yearly_sharpe
+
+knitr::kable(yearly_sharpe)
 ```
 
 ```{r, echo=F, results="hide", message=F, warning=F}
@@ -271,10 +272,8 @@ var_equal = var(equal_return)
 
 The individual variance of these 6 stocks are:
 
-```{r, echo=F, fig.align = 'right'}
-
+```{r, echo=F}
 diag(Sigma)
-
 ```
 
 And the variance of the equally weighted portfolio is `r var_equal` which is smaller than the variance of the indivual return of any stocks.
@@ -318,3 +317,11 @@ text(sqrt(investment_summary[2, ]), investment_summary[1, ], labels = names(inve
 
 As we may notice from the graph, the equally weighted portfolio performs well in a way that it offers both upside potential with relatively high investment output and downside protection with low investment risk.
 But the optimum portfolio performs better with lower investment risk and higher returns.
+
+In this latter case, the respective weights of each stocks "AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM" are : 
+```{r, echo=F, message=F, warning=F}
+weights = cbind(P[1],P[2],P[3],P[4],P[5],P[6])
+colnames(weights) = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+
+knitr::kable(weights)
+```
