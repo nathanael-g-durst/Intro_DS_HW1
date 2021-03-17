@@ -282,7 +282,11 @@ And the variance of the equally weighted portfolio is `r var_equal` which is sma
 
 ## Optimum portfolio
 
-```{r, echo=F, results="hide", message=F, warning=F}
+The optimally weighted portfolio (made of these 6 stocks) is called "Min_var".
+
+The equally weighted portfolio (made of these 6 stocks) is called "Equal".
+
+```{r, echo=F, message=F, warning=F}
 
 var = rep(1,6)
 inv_Sigma = solve(Sigma)
@@ -291,8 +295,6 @@ P = as.numeric( inv_Sigma %*% var / as.numeric(t(var) %*% inv_Sigma %*% var))
 optimum_return = AAPL_return*P[1] + CSCO_return*P[2] + INTC_return*P[3] + HD_return*P[4] + GOOG_return*P[5] + JPM_return*P[6]
 min_var = apply(optimum_return, 2, var)
 mean_optimum_return = apply(optimum_return, 2, mean)
-
-
 
 investment_summary <- matrix(NA, 2, 8)
 dimnames(investment_summary)[[1]] <- c("Expected value", "Variance")
