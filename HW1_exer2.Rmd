@@ -282,9 +282,9 @@ And the variance of the equally weighted portfolio is `r var_equal` which is sma
 
 ## Optimum portfolio
 
-The optimally weighted portfolio (made of these 6 stocks) is called **Min_var**.
+The **optimally** weighted portfolio (made of these 6 stocks) is called **Min_var**.
 
-The equally weighted portfolio (made of these 6 stocks) is called **Equal**.
+The **equally** weighted portfolio (made of these 6 stocks) is called **Equal**.
 
 ```{r, echo=F, message=F, warning=F}
 
