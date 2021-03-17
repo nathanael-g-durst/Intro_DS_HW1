@@ -5,7 +5,7 @@ author: "Adel Ben Snoussi, El-Amine Maamar, Eric Brandstätter, Nathanaël G. D�
 output: html_document
 ---
 
-```{r, echo=F, results="hide", message=F, warning=F,}
+```{r, echo=F, results="hide", message=F, warning=F}
 
 #Load library
 library("quantmod")
@@ -23,17 +23,79 @@ getSymbols.yahoo(
   periodicity = "daily"
 )
 
+```
+
+## Introduction
+
+In this financial analysis, we will discuss about the stocks of **Apple**, **Cisco Systems**, **Google**, **JPMorgan Chase**, **Home Depot** and **Intel**.
+
+## Some graphs
+
+### Apple
+
+The closing price of Apple stocks has increased a lot over the last year.
+
+```{r, echo=F, results="hide", message=F, warning=F}
+
 #Plot AAPL's closing price
-plot(AAPL$AAPL.Close)
+plot(
+  AAPL$AAPL.Close,
+  main="AAPL Closing Price over the year",
+  ylab="Closing price in USD",
+)
+
+```
+
+### Cisco Systems
+
+The closing price of Cisco stocks has decreased over the past year.
+
+
+```{r, echo=F, results="hide", message=F, warning=F}
 
 #Plot CSCO's closing price
-plot(CSCO$CSCO.Close)
+plot(
+  CSCO$CSCO.Close,
+  main="CSCO Closing Price over the year",
+  ylab="Closing price in USD",
+  col = "blue",
+)
+
+```
+
+It moved a lot but did not progress in the end.
+
+### Google
+
+Here you can see a candle chart of Google's stock over the last quarter of 2020.
+
+```{r, echo=F, results="hide", message=F, warning=F}
 
 #Candle chart GOOG 2020 Q4
-candleChart(GOOG, subset = "2020-10/2020-12")
+candleChart(
+  GOOG,
+  subset = "2020-10/2020-12",
+  name="GOOG Candle chart 2020 Q4",
+)
+
+```
+
+### JPMorgan Chase
+
+We can clearly see a volume spike on JPM's candle chart in november of 2020.
+
+```{r, echo=F, results="hide", message=F, warning=F}
 
 #Candle chart JPM 2020 Q4
-candleChart(JPM, subset = "2020-10/2020-12")
+candleChart(
+  JPM,
+  subset = "2020-10/2020-12",
+  name="JPM Candle chart 2020 Q4",
+)
+
+```
+
+```{r, echo=F, results="hide", message=F, warning=F}
 
 #--------------- [START] Mean and Variance Loop ---------------#
 
@@ -63,6 +125,27 @@ for (tickerName in tickerList) {
 rm(returnsStock, varStock, meanStock, tickerName, varNameMe, varNameRe, varNameVa)
 
 #--------------- [END] Mean and Variance Loop ---------------#
+
+```
+
+## Means and variances
+
+Here we will talk about the mean and variance of all of the stocks' closing prices we are analyzing.
+
+Google's mean is **`r meanGOOG`** and its variance is **`r varGOOG`**.
+
+On the other hand, Apple's mean is **`r meanAAPL`** and its variance is **`r varAAPL`**.
+
+Home Depot have different values: mean = **`r meanHD`** & variance = **`r varHD`**.
+
+Whereas Intel has a mean of **`r meanINTC`** and a variance of **`r varINTC`**.
+
+JPM has a mean of **`r meanJPM`** and a variance of **`r varJPM`**.
+
+Last but not least, Cisco's mean is equal to **`r meanCSCO`** with a variance of **`r varCSCO`**
+
+
+```{r, echo=F, results="hide", message=F, warning=F}
 
 #--------------- [START] Sharpe ratio ---------------#
 
@@ -105,7 +188,19 @@ rm(varNameS, dailyReturnStock, sdStock, excessReturnStock, sharpeStock, tickerNa
 
 #--------------- [END] Sharpe ratio ---------------#
 
-#--------------- [START] Weighted portfolio - Uses the first set of data ---------------#
+```
+
+## Sharpe ratio
+
+The lowest and highest Sharpe ratio are:`r summary(c(sharpeAAPL, sharpeGOOG, sharpeHD, sharpeJPM, sharpeINTC, sharpeCSCO))[-2:-5]`
+
+They belong to **Cisco and Apple** respectively.
+
+Between them, we find the others : `r sort(c(sharpeGOOG, sharpeHD, sharpeJPM, sharpeINTC))` (INTC, JPM, GOOG, HD).
+
+```{r, echo=F, results="hide", message=F, warning=F}
+
+#--------------- [START] Weighted portfolio - Uses the first set of data for comparison ---------------#
 
 weightPortfolio <- rep((1/length(tickerList)), times = length(tickerList))
 
@@ -131,7 +226,73 @@ varPortfolio <- as.numeric(var(returnsPortfolio))
 
 #--------------- [END] Weighted portfolio ---------------#
 
-#--------------- [START] Efficient frontier ---------------#
+```
 
+## Equally weighted portfolio
+
+The variance of an equally weighted portfolio of those stocks is `r varPortfolio`.
+
+Compared to the variance of all of the individual stocks : `r sort(c(varAAPL, varGOOG, varINTC, varHD, varCSCO, varJPM))`, we can clearly see the benefits of diversification. Only Google has a variance lower than our portfolio.
+
+## Optimum portfolio
+
+```{r, echo=F, results="hide", message=F, warning=F}
+
+#--------------- [START] Compute optimum portfolio ---------------#
+
+AAPL_return = dailyReturn(AAPL)
+CSCO_return = dailyReturn(CSCO)
+INTC_return = dailyReturn(INTC)
+HD_return = dailyReturn(HD)
+GOOG_return = dailyReturn(GOOG)
+JPM_return = dailyReturn(JPM)
+
+mat_return = cbind(AAPL_return,CSCO_return, INTC_return, HD_return, GOOG_return, JPM_return)
+colnames(mat_return)= c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+
+mu = apply(mat_return, 2, mean)
+Sigma <- var(mat_return)
+
+# equally weighted portfolio
+equal_return = (AAPL_return + CSCO_return + INTC_return + HD_return + GOOG_return + JPM_return)/6
+
+mu_equal = mean(equal_return)
+var_equal = var(equal_return)
+
+#  stocks variances
+diag(Sigma)  
+
+var = rep(1,6)
+inv_Sigma = solve(Sigma)
+P = as.numeric( inv_Sigma %*% var / as.numeric(t(var) %*% inv_Sigma %*% var))
+
+optimum_return = AAPL_return*P[1] + CSCO_return*P[2] + INTC_return*P[3] + HD_return*P[4] + GOOG_return*P[5] + JPM_return*P[6]
+min_var = apply(optimum_return, 2, var)
+mean_optimum_return = apply(optimum_return, 2, mean)
+
+
+
+investment_summary <- matrix(NA, 2, 8)
+dimnames(investment_summary)[[1]] <- c("Expected value", "Variance")
+dimnames(investment_summary)[[2]] <- c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM", "Min_var", "Equal")
+investment_summary[1, ] <- c(mu, mean_optimum_return, mu_equal)
+investment_summary[2, ] <- c(diag(Sigma), min_var, var_equal)
+knitr::kable(investment_summary)
+
+plot((sqrt(investment_summary[2, ])), investment_summary[1, ],
+     main="Stocks Portfolio",
+     xlab="Daily Investment Standard Deviation",
+     ylab="Daily Expected Value of Investment ",
+     xlim = c(min(sqrt(investment_summary[2, ])), max(sqrt(investment_summary[2, ])+1e-04)),
+     ylim = c(0, 0.0012),
+     lty = "solid",
+     lwd = 2, 
+     col = 1:8,
+     cex = 1,
+     pch = 19,
+grid())
+text(sqrt(investment_summary[2, ]), investment_summary[1, ], labels = names(investment_summary[2, ]), cex = 0.5, pos = 3)
+
+#--------------- [END] Compute optimum portfolio ---------------#
 
 ```
