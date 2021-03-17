@@ -144,6 +144,15 @@ JPM has a mean of **`r meanJPM`** and a variance of **`r varJPM`**.
 
 Last but not least, Cisco's mean is equal to **`r meanCSCO`** with a variance of **`r varCSCO`**
 
+```{r, echo=F, message=F, warning=F}
+
+mean_var_mat <- matrix(NA, 2, 6)
+dimnames(mean_var_mat)[[1]] <- c("Expected value", "Variance")
+dimnames(mean_var_mat)[[2]] <- c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+mean_var_mat[1, ] <- c(meanAAPL, meanCSCO, meanINTC, meanHD, meanGOOG, meanJPM)
+mean_var_mat[2, ] <- c(varAAPL, varCSCO, varINTC, varHD, varGOOG, varJPM)
+knitr::kable(mean_var_mat)
+```
 
 ```{r, echo=F, results="hide", message=F, warning=F}
 
@@ -262,7 +271,7 @@ var_equal = var(equal_return)
 
 The individual variance of these 6 stocks are:
 
-```{r, echo=F}
+```{r, echo=F, fig.align = 'right'}
 
 diag(Sigma)
 
