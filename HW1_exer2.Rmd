@@ -130,7 +130,7 @@ rm(returnsStock, varStock, meanStock, tickerName, varNameMe, varNameRe, varNameV
 
 ## Means and variances
 
-Here we will talk about the mean and variance of all of the stocks' closing prices we are analyzing.
+Here we will talk about the mean and variance of all of the stocks' closing prices we are analyzing for the year 2020.
 
 Google's mean is **`r meanGOOG`** and its variance is **`r varGOOG`**.
 
