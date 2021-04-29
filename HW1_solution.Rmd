@@ -1,0 +1,291 @@
+---
+title: "Homework 1: Solution"
+output: html_document
+bibliography: quote.bib
+---
+
+# Exercise 1: Introduction
+
+### 1. A picture with a caption
+
+
+![Bugatti Chiron](https://www.tuningblog.eu/wp-content/uploads/2019/09/Top-Gear-490-kmh-im-Tuning-Rekord-Bugatti-Chiron-Sport-2019.jpg)
+
+### 2. A quote using BibTex
+
+> "L'absurdité est surtout le divorce de l'homme et du monde." @camus1988etranger
+
+### 3. Three emoji
+
+`r emo::ji('alien')` `r emo::ji('sunglasses')` `r emo::ji('fire')`
+
+### 4. A large giphy and a small giphy
+
+![](https://i.pinimg.com/originals/77/a0/a9/77a0a982809ebe6b898bbed8fe0a0013.gif) 
+
+<img src='https://i.makeagif.com/media/11-19-2015/N2P_p_.gif' width='150' height='150' />
+
+### 5. A table having two columns
+
+|            Courses           | Time |
+|:----------------------------:|:----:|
+|       Microeconomics II      |  4H  |
+|         Macroéconomie        |  4H  |
+|     Development economics    |  4H  |
+| Introduction to data science |  4H  |
+|      Consumer behavior I     |  2H  |
+
+### 6. A short video
+
+<iframe width='560' height='315' src="https://www.youtube.com/embed/WpE_xMRiCLE" frameborder='0' allowfullscreen></iframe>
+
+
+
+# Exercise 1: R Markdown Syntax
+
+### 1. Chunk option: cache=T
+
+```{r 1, cache=TRUE}
+a=3
+```
+
+```{r 2, cache=TRUE}
+(b=2*a)
+```
+
+An error occurs because in the first R block we first put `a = 4` and then we changed to `a = 3`. But the computation in the second R block didn't change accordingly as we didn't use the option "depends on".
+
+### 2. Uniform simulation
+
+```{r}
+x = runif(n = 100, min = 0, max = 1)
+mean(x)
+median(x)
+var(x)
+```
+
+The theoretical mean is 0.5. The sample mean is not exactly equal to 0.5 because sampling is random, and its mean is random correspondingly. The same goes for the median and variance. So this result is not surprising.
+
+
+### 3. Histogram
+
+```{r}
+hist(x, col = "orange", main = "Distribution of x")
+```
+
+### 4. Centered equation
+
+\[
+	\begin{aligned}
+			 \mathbb{E} \left[ \text{var} \left\{
+                             \boldsymbol{v}_1\left(
+                               \hat{\boldsymbol{\theta}},n\right) \big|
+                             \hat{\boldsymbol{\theta}} \right\}  \right] 
+&=
+                         \text{var} \left\{ \mathbf{v}_1\left(
+                             \boldsymbol{\theta}_0,n\right)  \right\}  +
+                         \mathbb{E} \left[\mathcal{O}_p\left\{
+{\bf D}_1(\boldsymbol{\theta}^*,n)(\hat{\boldsymbol{\theta}} - \boldsymbol{\theta}_{0}), 
+\dots,
+{\bf D}_p(\boldsymbol{\theta}^*,n)(\boldsymbol{\theta} - \boldsymbol{\theta}_{0})
+\right\}\right]\\
+			&= \text{var} \left\{ \mathbf{v}_1\left( \boldsymbol{\theta}_0,n\right)  \right\}  + \mathcal{O}\left(n^{-2}\right).
+	\end{aligned}
+\]
+    
+    
+    
+### 5. In-line equation 
+
+<em>in-line</em> equation: \(\mathbf{A} \equiv \left[a_{i,j}\right]_{i,j = 1, \ldots, p}\) 
+
+
+### 6. Colored quote
+
+<font color="blue">“Vérité dans un temps, erreur dans un autre.”, Charles de Montesquieu</font></p>
+
+
+### 7. Button "More info"
+
+<button data-toggle="collapse" data-target="#demo">
+More info
+</button>
+<div id="demo" class="collapse">
+<p>Some additional info… :)</p>
+</div>
+
+### 8. A colorbox
+<div class="alert alert-success">
+<p><strong>Some important Info:</strong> something</p>
+
+
+# Exercise 2: Financial Analysis
+
+### Question 1
+
+```{r eval=FALSE}
+install.packages("quantmod")
+```
+
+```{r message=FALSE, error=FALSE}
+library(quantmod)
+```
+
+### Question 2
+
+```{r message=FALSE, error=FALSE}
+getSymbols(c("AAPL", "CSCO"), from="2020-01-01", to="2021-01-01", src="yahoo")
+getSymbols(c("INTC", "HD"), from="2020-01-01", to="2021-01-01", src="yahoo")
+getSymbols(c("GOOG", "JPM"), from="2020-01-01", to="2021-01-01", src="yahoo")
+```
+
+### Question 3
+
+```{r}
+plot(AAPL$AAPL.Close, col= "blue4")
+plot(CSCO$CSCO.Close, col= "blue4")
+```
+
+### Question 4
+
+```{r}
+candleChart(GOOG, multi.col=F, subset = "last 3 months", theme='white') 
+candleChart(JPM, multi.col=F, subset = "last 3 months", theme='white')
+```
+
+### Question 5
+
+```{r}
+closing_price = cbind(AAPL$AAPL.Close, CSCO$CSCO.Close, INTC$INTC.Close, 
+                      HD$HD.Close, GOOG$GOOG.Close, JPM$JPM.Close)
+head(closing_price)
+```
+
+```{r}
+apply(closing_price, 2, mean)
+apply(closing_price, 2, var)
+```
+
+### Question 6
+
+```{r message=FALSE, error=FALSE}
+# reload data for the last 10 years
+getSymbols(c("AAPL", "CSCO"), from="2011-01-01", to="2021-01-01", src="yahoo")
+getSymbols(c("INTC", "HD"), from="2011-01-01", to="2021-01-01", src="yahoo")
+getSymbols(c("GOOG", "JPM"), from="2011-01-01", to="2021-01-01", src="yahoo")
+```
+
+```{r}
+# daily returns on the last 10 years
+AAPL_return = dailyReturn(AAPL)
+CSCO_return = dailyReturn(CSCO)
+INTC_return = dailyReturn(INTC)
+HD_return = dailyReturn(HD)
+GOOG_return = dailyReturn(GOOG)
+JPM_return = dailyReturn(JPM)
+
+# calculate excess return
+AAPL_excess = AAPL_return - 0.03/252
+CSCO_excess = CSCO_return - 0.03/252
+INTC_excess = INTC_return - 0.03/252
+HD_excess = HD_return - 0.03/252
+GOOG_excess = GOOG_return - 0.03/252
+JPM_excess = JPM_return - 0.03/252
+
+# compute yearly sharpe ratio
+AAPL_yearly_sharpe = mean(AAPL_excess) / sd(AAPL_excess) * sqrt(252)
+CSCO_yearly_sharpe = mean(CSCO_excess) / sd(CSCO_excess) * sqrt(252)
+INTC_yearly_sharpe = mean(INTC_excess) / sd(INTC_excess) * sqrt(252)
+HD_yearly_sharpe = mean(HD_excess) / sd(HD_excess) * sqrt(252)
+GOOG_yearly_sharpe = mean(GOOG_excess) / sd(GOOG_excess) * sqrt(252)
+JPM_yearly_sharpe = mean(JPM_excess) / sd(JPM_excess) * sqrt(252)
+
+yearly_shape = cbind(AAPL_yearly_sharpe, CSCO_yearly_sharpe, INTC_yearly_sharpe,
+                     HD_yearly_sharpe, GOOG_yearly_sharpe, JPM_yearly_sharpe)
+colnames(yearly_shape) = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+yearly_shape
+```
+
+
+### Question 7
+
+```{r}
+# estimation of mean (mu) and variance (Sigma)
+mat_return = cbind(AAPL_return, CSCO_return, INTC_return, HD_return, GOOG_return, JPM_return)
+colnames(mat_return) = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+
+mu = apply(mat_return, 2, mean)
+Sigma = var(mat_return)
+```
+
+```{r}
+# equally weighted portfolio
+equal_return = (AAPL_return + CSCO_return + INTC_return + HD_return + GOOG_return + JPM_return)/6
+
+mu_equal = mean(equal_return)
+var_equal = var(equal_return)
+```
+
+The individual variance of these 6 stocks are: 
+```{r}
+diag(Sigma)
+```
+
+And the variance of this equally weighted portfolio is `r round(var_equal, 6)`. As we can see, the variance of this portfolio is smaller than the variance of the individual return of any stocks.
+
+### Bonus Question 8
+
+```{r}
+# find optimal weights
+one = rep(1,6)
+inv_Sigma = solve(Sigma)
+W = as.numeric(inv_Sigma %*% one / as.numeric(t(one) %*% inv_Sigma %*% one))
+names(W) = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM")
+```
+
+```{r}
+# optimal portfolio
+optim_return = AAPL_return*W[1] + CSCO_return*W[2] + INTC_return*W[3] + HD_return*W[4] + GOOG_return*W[5] + JPM_return*W[6]
+
+mu_optim = mean(optim_return)
+var_optim = var(optim_return)
+```
+
+So the optimal weights for each individual stocks are:
+
+```{r}
+W
+```
+
+Moreover, the variance of this optimally weighted portfolio is `r round(var_optim,6)`, which is even smaller than the varaince of the equally weighted portfolio (`r round(var_equal,6)`). 
+
+```{r}
+investment_summary = matrix(NA, 2, 8)
+dimnames(investment_summary)[[1]] = c("Expected value", "Variance")
+dimnames(investment_summary)[[2]] = c("AAPL", "CSCO", "INTC", "HD", "GOOG", "JPM", "Equal", "Min var")
+investment_summary[1, ] = c(mu, mu_equal, mu_optim)
+investment_summary[2, ] = c(diag(Sigma), var_equal, var_optim)
+investment_summary
+```
+
+```{r}
+plot(sqrt(investment_summary[2, ]), investment_summary[1, ], 
+     ylab = "Daily Expected Value of Investment", 
+     xlab = "Daily Investment Standard Deviation", 
+     pch = 19, cex = 1, lty = "solid", lwd = 2, 
+     xlim = c(min(sqrt(investment_summary[2, ])), max(sqrt(investment_summary[2, ])+3e-03)), 
+     col = 1:8)
+grid()
+text(sqrt(investment_summary[2, ]), investment_summary[1, ], 
+     labels = names(investment_summary[1, ]), cex= 0.7, pos = 4)
+
+```
+
+As we can see from the graph, the equally weighted portfolio performs well in general in the sense that it has relatively high investment output and low investment risk. But the portfolio which minimizes the investment risk can do even better with higher investment output. 
+
+
+# References
+
+
+
+
